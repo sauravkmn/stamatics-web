@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode */
+:root.light {
+  --background: #ffffff;
+  --foreground: #111827;
+  --nav: #f9fafb;
+  --navText: #111827;
+}
+
+/* Dark mode */
+:root.dark {
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+  --nav: #1e293b;
+  --navText: #e2e8f0;
+}
+
+/* Utility classes */
+.bg-background { background-color: var(--background); }
+.text-foreground { color: var(--foreground); }
+.bg-nav { background-color: var(--nav); }
+.text-navText { color: var(--navText); }
