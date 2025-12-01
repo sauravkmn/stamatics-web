@@ -194,7 +194,7 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 120px; 
+  gap: 200px; 
   align-items: center;
 }
 
