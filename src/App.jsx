@@ -31,6 +31,8 @@ function App() {
         requestAnimationFrame(step);
       } else {
         autoScrollingRef.current = false;
+        // 🔧 IMPORTANT: sync lastScrollY so the next scroll direction is correct
+        lastScrollYRef.current = window.scrollY;
       }
     };
 
@@ -50,6 +52,9 @@ function App() {
   };
 
   useEffect(() => {
+    // initialize lastScrollY
+    lastScrollYRef.current = window.scrollY;
+
     const handleScroll = () => {
       if (autoScrollingRef.current) return;
       if (!aboutRef.current) return;
