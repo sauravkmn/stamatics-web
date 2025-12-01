@@ -11,14 +11,39 @@ function App() {
   const [showAbout, setShowAbout] = useState(false);
   const autoScrollingRef = useRef(false);
 
+  const smoothScrollTo = (targetY, duration = 1000) => {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    let startTime = null;
+
+    const easeInOutQuad = (t) =>
+      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+    autoScrollingRef.current = true;
+
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      let progress = Math.min(elapsed / duration, 1);
+      const eased = easeInOutQuad(progress);
+
+      window.scrollTo(0, startY + distance * eased);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        autoScrollingRef.current = false;
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
   const scrollToAbout = () => {
     if (!aboutRef.current) return;
-    autoScrollingRef.current = true;
-    aboutRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    // Unlock auto scroll after some time (enough for smooth scroll & animation)
-    setTimeout(() => {
-      autoScrollingRef.current = false;
-    }, 1000);
+    const targetY =
+      aboutRef.current.getBoundingClientRect().top + window.scrollY;
+    smoothScrollTo(targetY, 1000); // 1s smooth scroll
   };
 
   const handleAboutClick = (e) => {
@@ -29,20 +54,18 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (autoScrollingRef.current) return; // don't react while auto-scrolling
+      if (autoScrollingRef.current) return; // ignore during auto scroll
       if (!aboutRef.current) return;
 
       const rect = aboutRef.current.getBoundingClientRect();
       const triggerPoint = window.innerHeight * 0.65;
 
       if (rect.top < triggerPoint) {
-        // User has scrolled far enough: blur hero & show about, then auto-scroll
         if (!showAbout) {
           setShowAbout(true);
           scrollToAbout();
         }
       } else {
-        // Above threshold: show hero again
         if (showAbout) {
           setShowAbout(false);
         }
