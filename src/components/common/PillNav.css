@@ -64,6 +64,33 @@
   display: block;
 }
 
+.theme-toggle {
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+}
+
+.theme-toggle.light {
+  background: radial-gradient(circle at 30% 20%, #ffffff, #d4d4d4 60%, #b0b0b0);
+}
+
+.theme-toggle.dark {
+  background: radial-gradient(circle at 30% 20%, #1f2933, #020617 60%, #000000);
+}
+
+.theme-toggle:hover {
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+  transform: translateY(-1px);
+}
+
+.theme-icon {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4));
+}
+
 .pill-list {
   list-style: none;
   display: flex;
