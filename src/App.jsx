@@ -57,34 +57,58 @@ function App() {
           <button className="hero-button">Explore Competitions</button>
         </section>
 
-        {/* RIGHT: LATEST BLOGS (wide panel) */}
+        {/* RIGHT: LATEST BLOGS (with images) */}
         <section className="hero-right">
           <div className="newsletter-card">
             <h3 className="newsletter-title">Latest Blogs</h3>
 
             <div className="blog-list">
               <article className="blog-item">
-                <h4 className="blog-title">
-                  Why Problem Solving Competitions Matter
-                </h4>
-                <p className="blog-meta">Community · 5 min read</p>
-                <button className="blog-link">Read more →</button>
+                <div className="blog-thumbnail">
+                  <img
+                    src="https://via.placeholder.com/80x60"
+                    alt="Why Problem Solving Competitions Matter"
+                  />
+                </div>
+                <div className="blog-info">
+                  <h4 className="blog-title">
+                    Why Problem Solving Competitions Matter
+                  </h4>
+                  <p className="blog-meta">Community · 5 min read</p>
+                  <button className="blog-link">Read more →</button>
+                </div>
               </article>
 
               <article className="blog-item">
-                <h4 className="blog-title">
-                  A Beginner&apos;s Guide to Mathematical Thinking
-                </h4>
-                <p className="blog-meta">Learning · 7 min read</p>
-                <button className="blog-link">Read more →</button>
+                <div className="blog-thumbnail">
+                  <img
+                    src="https://via.placeholder.com/80x60"
+                    alt="A Beginner's Guide to Mathematical Thinking"
+                  />
+                </div>
+                <div className="blog-info">
+                  <h4 className="blog-title">
+                    A Beginner&apos;s Guide to Mathematical Thinking
+                  </h4>
+                  <p className="blog-meta">Learning · 7 min read</p>
+                  <button className="blog-link">Read more →</button>
+                </div>
               </article>
 
               <article className="blog-item">
-                <h4 className="blog-title">
-                  Inside Stamatics: Events, Talks, and More
-                </h4>
-                <p className="blog-meta">Campus · 6 min read</p>
-                <button className="blog-link">Read more →</button>
+                <div className="blog-thumbnail">
+                  <img
+                    src="https://via.placeholder.com/80x60"
+                    alt="Inside Stamatics: Events, Talks, and More"
+                  />
+                </div>
+                <div className="blog-info">
+                  <h4 className="blog-title">
+                    Inside Stamatics: Events, Talks, and More
+                  </h4>
+                  <p className="blog-meta">Campus · 6 min read</p>
+                  <button className="blog-link">Read more →</button>
+                </div>
               </article>
             </div>
           </div>
