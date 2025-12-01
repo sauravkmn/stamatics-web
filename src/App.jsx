@@ -1,9 +1,14 @@
 // src/App.jsx
+import { useState } from "react";
 import bgImage from "./assets/home_background.jpg";
 import logo from "./assets/logo.png";
 import "./App.css";
 
 function App() {
+  const [isCompetitionsOpen, setIsCompetitionsOpen] = useState(false);
+
+  const closeDropdown = () => setIsCompetitionsOpen(false);
+
   return (
     <div
       className="hero-root"
@@ -23,19 +28,38 @@ function App() {
             </div>
           </div>
 
-          {/* RIGHT NAVIGATION LINKS WITH DROPDOWN */}
+          {/* RIGHT NAVIGATION LINKS WITH CLICK DROPDOWN */}
           <nav className="nav-links top-right-nav">
             <a href="#who">Who We Are</a>
 
             {/* COMPETITIONS DROPDOWN */}
-            <div className="dropdown">
-              <span className="dropdown-label">Competitions ▾</span>
+            <div
+              className={`dropdown ${isCompetitionsOpen ? "open" : ""}`}
+              onMouseLeave={closeDropdown}
+            >
+              <button
+                type="button"
+                className="dropdown-label"
+                onClick={() =>
+                  setIsCompetitionsOpen((prev) => !prev)
+                }
+              >
+                Competitions ▾
+              </button>
 
               <div className="dropdown-menu">
-                <a href="#integration">Integration Bee</a>
-                <a href="#mathematica">Mathematica</a>
-                <a href="#mathemania">Mathemania</a>
-                <a href="#participants">Participants</a>
+                <a href="#integration" onClick={closeDropdown}>
+                  Integration Bee
+                </a>
+                <a href="#mathematica" onClick={closeDropdown}>
+                  Mathematica
+                </a>
+                <a href="#mathemania" onClick={closeDropdown}>
+                  Mathemania
+                </a>
+                <a href="#participants" onClick={closeDropdown}>
+                  Participants
+                </a>
               </div>
             </div>
 
