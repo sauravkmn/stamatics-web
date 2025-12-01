@@ -130,11 +130,11 @@ body {
   position: relative;
 }
 
-/* DROPDOWN MENU – BASE STATE (HIDDEN) */
+/* DROPDOWN MENU - HIDDEN BASE STATE */
 .dropdown-menu {
   position: absolute;
-  top: 120%;
-  right: 0;
+  top: 110%;         /* directly below label */
+  left: 0;           /* aligned to the left edge of "Competitions" text */
   background: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(12px);
   border-radius: 8px;
@@ -149,15 +149,26 @@ body {
   transform: translateY(8px);
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+
+  /* 1.5s fade-out for hidden state */
+  transition:
+    opacity 1.5s ease,
+    transform 0.3s ease,
+    visibility 0s linear 1.5s;
 }
 
-/* OPEN STATE (CLICKED) */
-.dropdown.open .dropdown-menu {
+/* SHOW + QUICK FADE-IN ON HOVER */
+.dropdown:hover .dropdown-menu {
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
   pointer-events: auto;
+
+  /* faster fade-in */
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0s;
 }
 
 /* DROPDOWN LINKS */
