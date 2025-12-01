@@ -23,8 +23,3 @@
 .text-foreground { color: var(--foreground); }
 .bg-nav { background-color: var(--nav); }
 .text-navText { color: var(--navText); }
-
-body {
-  background: #000000;
-  color: #ffffff;
-}
