@@ -237,7 +237,7 @@ body {
 .hero-right {
   display: flex;
   justify-content: flex-end;
-  padding-right: 40px;
+  padding-right: 60px;
 }
 
 .newsletter-card {
