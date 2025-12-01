@@ -1,3 +1,4 @@
+// src/App.jsx
 import bgImage from "./assets/home_background.jpg";
 import logo from "./assets/logo.png";
 import "./App.css";
@@ -23,11 +24,11 @@ function App() {
             </div>
           </div>
 
-          {/* RIGHT: NAVIGATION LINKS (now on top-right, bold) */}
+          {/* RIGHT: NAVIGATION LINKS (top-right, bold) */}
           <nav className="nav-links top-right-nav">
             <a href="#who">Who We Are</a>
-            <a href="#modules">Learning Modules</a>
-            <a href="#resources">Resources</a>
+            <a href="#competitions">Competitions</a>
+            <a href="#blogs">Blogs</a>
             <a href="#team">Our Team</a>
             <a href="#contact">Contact</a>
           </nav>
