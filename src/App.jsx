@@ -11,7 +11,7 @@ function App() {
   const [showAbout, setShowAbout] = useState(false);
   const autoScrollingRef = useRef(false);
 
-  const smoothScrollTo = (targetY, duration = 1000) => {
+  const smoothScrollTo = (targetY, duration = 400) => {
     const startY = window.scrollY;
     const distance = targetY - startY;
     let startTime = null;
@@ -43,7 +43,7 @@ function App() {
     if (!aboutRef.current) return;
     const targetY =
       aboutRef.current.getBoundingClientRect().top + window.scrollY;
-    smoothScrollTo(targetY, 1000); // 1s smooth scroll
+    smoothScrollTo(targetY, 400); // 1s smooth scroll
   };
 
   const handleAboutClick = (e) => {
