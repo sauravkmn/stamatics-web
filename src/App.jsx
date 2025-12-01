@@ -14,7 +14,6 @@ function App() {
       {/* NAVBAR */}
       <header className="navbar">
         <div className="navbar-inner">
-
           {/* LEFT LOGO */}
           <div className="logo">
             <img src={logo} alt="Stamatics Logo" className="logo-image" />
@@ -26,7 +25,6 @@ function App() {
 
           {/* RIGHT NAVIGATION LINKS WITH DROPDOWN */}
           <nav className="nav-links top-right-nav">
-
             <a href="#who">Who We Are</a>
 
             {/* COMPETITIONS DROPDOWN */}
@@ -37,6 +35,7 @@ function App() {
                 <a href="#integration">Integration Bee</a>
                 <a href="#mathematica">Mathematica</a>
                 <a href="#mathemania">Mathemania</a>
+                <a href="#participants">Participants</a>
               </div>
             </div>
 
@@ -44,13 +43,11 @@ function App() {
             <a href="#team">Our Team</a>
             <a href="#contact">Contact</a>
           </nav>
-
         </div>
       </header>
 
       {/* MAIN HERO CONTENT */}
       <main className="hero-content">
-
         {/* LEFT HERO TEXT */}
         <section className="hero-left">
           <h1 className="hero-title">Stamatics IIT Kanpur</h1>
@@ -67,13 +64,17 @@ function App() {
             <h3 className="newsletter-title">Latest Blogs</h3>
 
             <div className="blog-list">
-
               <article className="blog-item">
                 <div className="blog-thumbnail">
-                  <img src="https://via.placeholder.com/80x60" alt="" />
+                  <img
+                    src="https://via.placeholder.com/80x60"
+                    alt="Why Problem Solving Competitions Matter"
+                  />
                 </div>
                 <div className="blog-info">
-                  <h4 className="blog-title">Why Problem Solving Competitions Matter</h4>
+                  <h4 className="blog-title">
+                    Why Problem Solving Competitions Matter
+                  </h4>
                   <p className="blog-meta">Community · 5 min read</p>
                   <button className="blog-link">Read more →</button>
                 </div>
@@ -81,10 +82,15 @@ function App() {
 
               <article className="blog-item">
                 <div className="blog-thumbnail">
-                  <img src="https://via.placeholder.com/80x60" alt="" />
+                  <img
+                    src="https://via.placeholder.com/80x60"
+                    alt="A Beginner's Guide to Mathematical Thinking"
+                  />
                 </div>
                 <div className="blog-info">
-                  <h4 className="blog-title">A Beginner's Guide to Mathematical Thinking</h4>
+                  <h4 className="blog-title">
+                    A Beginner&apos;s Guide to Mathematical Thinking
+                  </h4>
                   <p className="blog-meta">Learning · 7 min read</p>
                   <button className="blog-link">Read more →</button>
                 </div>
@@ -92,19 +98,22 @@ function App() {
 
               <article className="blog-item">
                 <div className="blog-thumbnail">
-                  <img src="https://via.placeholder.com/80x60" alt="" />
+                  <img
+                    src="https://via.placeholder.com/80x60"
+                    alt="Inside Stamatics: Events, Talks, and More"
+                  />
                 </div>
                 <div className="blog-info">
-                  <h4 className="blog-title">Inside Stamatics: Events, Talks, and More</h4>
+                  <h4 className="blog-title">
+                    Inside Stamatics: Events, Talks, and More
+                  </h4>
                   <p className="blog-meta">Campus · 6 min read</p>
                   <button className="blog-link">Read more →</button>
                 </div>
               </article>
-
             </div>
           </div>
         </section>
-
       </main>
 
       {/* SCROLL ARROW */}
