@@ -9,7 +9,8 @@ function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar-inner">
-        {/* LEFT LOGO */}
+
+        {/* LEFT LOGO (LINK TO HOME) */}
         <Link to="/" className="logo">
           <img src={logo} alt="Stamatics Logo" className="logo-image" />
           <div className="logo-text">
@@ -18,10 +19,11 @@ function Navbar() {
           </div>
         </Link>
 
-        {/* RIGHT NAVIGATION LINKS + HOVER DROPDOWN */}
+        {/* RIGHT NAVIGATION */}
         <nav className="nav-links top-right-nav">
-          {/* For now, About Us scrolls within Home using anchor */}
-          <a href="#about" className="nav-link">
+
+          {/* ABOUT US (scrolls within Home.jsx) */}
+          <a href="/#about" className="nav-link">
             About Us
           </a>
 
@@ -30,32 +32,37 @@ function Navbar() {
             <span className="dropdown-label">Competitions ▾</span>
 
             <div className="dropdown-menu">
-              <a href="#integration" className="dropdown-item">
+              <a href="/#integration" className="dropdown-item">
                 Integration Bee
               </a>
-              <a href="#mathematica" className="dropdown-item">
+              <a href="/#mathematica" className="dropdown-item">
                 Mathematica
               </a>
-              <a href="#mathemania" className="dropdown-item">
+              <a href="/#mathemania" className="dropdown-item">
                 Mathemania
               </a>
-              <a href="#participants" className="dropdown-item">
+              <a href="/#participants" className="dropdown-item">
                 Participants
               </a>
             </div>
           </div>
 
-          {/* These routes can be real pages later */}
+          {/* BLOGS — goes nowhere yet, but ready for routing */}
           <NavLink to="/" className={navLinkClass}>
             Blogs
           </NavLink>
+
+          {/* TEAM — goes nowhere yet */}
           <NavLink to="/" className={navLinkClass}>
             Our Team
           </NavLink>
-          <NavLink to="/" className={navLinkClass}>
+
+          {/* CONTACT PAGE */}
+          <NavLink to="/contact" className={navLinkClass}>
             Contact
           </NavLink>
         </nav>
+
       </div>
     </header>
   );
