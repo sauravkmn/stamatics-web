@@ -9,7 +9,8 @@
     "Segoe UI", sans-serif;
 }
 
-/* GLOBAL RESET */
+/* RESET */
+
 *,
 *::before,
 *::after {
@@ -21,6 +22,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -29,62 +31,34 @@ body {
   color: var(--text-main);
 }
 
-/* PAGE ROOT */
+/* WRAPPER */
+
 .page-root {
+  background: #000;
   min-height: 100vh;
-  background-color: #000000;
 }
 
-/* HERO AREA WITH WALLPAPER */
-.hero-root {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  background-size: contain;        /* help reduce pixelation */
-  background-position: center top; /* anchor at top center */
-  background-repeat: no-repeat;
-  color: var(--text-main);
-  overflow: hidden;
-  transition: background-color 0.6s ease;
-}
+/* =============================== */
+/*            NAVBAR               */
+/* =============================== */
 
-/* When hero fades, turn into pure black background */
-.hero-root.hero-fade-out {
-  background-image: none;
-  background-color: #000000;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-      circle at 20% 0,
-      rgba(123, 75, 255, 0.2),
-      transparent 55%
-    ),
-    rgba(0, 0, 0, 0.7);
-  z-index: 0;
-}
-
-/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 20;
+  z-index: 50;
 }
 
 .navbar-inner {
   width: 100%;
   padding: 14px 32px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   background: var(--nav-bg);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(16px);
 }
 
-/* LOGO */
 .logo {
   display: flex;
   align-items: center;
@@ -99,29 +73,22 @@ body {
   border-radius: 50%;
 }
 
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
 .logo-title {
+  color: var(--text-main);
   font-size: 22px;
   font-weight: 700;
-  color: var(--text-main);
 }
 
 .logo-subtitle {
   font-size: 13px;
   color: var(--text-muted);
-  font-weight: 700;
+  font-weight: 600;
 }
 
-/* NAV LINKS (TOP RIGHT) */
 .top-right-nav {
   display: flex;
-  gap: 28px;
   align-items: center;
+  gap: 28px;
 }
 
 .nav-link,
@@ -131,8 +98,6 @@ body {
   color: var(--text-main);
   text-decoration: none;
   cursor: pointer;
-  background: none;
-  border: none;
 }
 
 .nav-link:hover,
@@ -144,48 +109,68 @@ body {
   border-bottom: 2px solid var(--purple);
 }
 
-/* DROPDOWN CONTAINER */
+/* DROPDOWN */
+
 .dropdown {
   position: relative;
 }
 
-/* DROPDOWN MENU – INSTANT SHOW/HIDE */
 .dropdown-menu {
   position: absolute;
   top: 110%;
   left: 0;
-  background: rgba(0, 0, 0, 0.92);
-  backdrop-filter: blur(12px);
-  border-radius: 8px;
-  padding: 10px 0;
   display: none;
   flex-direction: column;
   width: 200px;
-  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5);
-  z-index: 30;
+  background: rgba(15, 23, 42, 0.98);
+  border-radius: 10px;
+  padding: 12px 0;
+  z-index: 40;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.6);
 }
 
-/* SHOW INSTANTLY ON HOVER */
 .dropdown:hover .dropdown-menu {
   display: flex;
 }
 
-/* DROPDOWN LINKS */
-.dropdown-menu a,
-.dropdown-item {
-  font-weight: 600;
+.dropdown-menu a {
   padding: 10px 18px;
   color: var(--text-main);
+  font-weight: 600;
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: background 0.15s;
 }
 
-.dropdown-menu a:hover,
-.dropdown-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* HERO CONTENT (TOP SECTION) */
+/* =============================== */
+/*           HERO SECTION          */
+/* =============================== */
+
+.hero-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 0,
+      rgba(123, 75, 255, 0.25),
+      transparent 55%
+    ),
+    rgba(0, 0, 0, 0.75);
+  z-index: 0;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -193,13 +178,15 @@ body {
   margin: 0 auto;
   padding: 0 32px 80px;
   min-height: 100vh;
+
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
-  gap: 120px;
+  grid-template-columns: 1.4fr 1.6fr;
   align-items: center;
+  gap: 120px;
 }
 
-/* LEFT HERO TEXT */
+/* HERO LEFT */
+
 .hero-left {
   max-width: 640px;
 }
@@ -207,57 +194,54 @@ body {
 .hero-title {
   font-size: clamp(38px, 4vw + 10px, 60px);
   font-weight: 700;
-  margin: 0 0 24px;
+  margin-bottom: 20px;
 }
 
 .hero-subtitle {
   font-size: 18px;
   color: var(--text-muted);
-  font-weight: 600;
-  margin: 0 0 36px;
+  margin-bottom: 36px;
 }
 
 .hero-button {
   padding: 12px 36px;
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid var(--border-muted);
   font-size: 14px;
   font-weight: 700;
-  background: transparent;
-  color: #ffffff;
-  border-radius: 4px;
-  border: 1px solid var(--border-muted);
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  transition: 0.2s;
 }
 
 .hero-button:hover {
-  background: #ffffff;
-  color: #000000;
+  background: #fff;
+  color: #000;
   transform: translateY(-1px);
 }
 
-/* RIGHT BLOG PANEL */
+/* HERO RIGHT */
+
 .hero-right {
   display: flex;
   justify-content: flex-end;
-  padding-right: 40px;
 }
 
 .newsletter-card {
   background: var(--card-bg);
-  border-radius: 12px;
-  padding: 22px 26px;
+  padding: 24px 28px;
   max-width: 540px;
-  width: 100%;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
 .newsletter-title {
-  margin: 0 0 12px;
   font-size: 20px;
   font-weight: 700;
+  margin-bottom: 16px;
 }
 
-/* BLOG LIST */
 .blog-list {
   display: flex;
   flex-direction: column;
@@ -268,18 +252,14 @@ body {
   display: flex;
   gap: 14px;
   padding-bottom: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.blog-item:last-child {
-  border-bottom: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .blog-thumbnail img {
   width: 90px;
   height: 70px;
-  object-fit: cover;
   border-radius: 6px;
+  object-fit: cover;
 }
 
 .blog-info {
@@ -287,34 +267,45 @@ body {
 }
 
 .blog-title {
-  margin: 0 0 4px;
   font-size: 15px;
   font-weight: 700;
 }
 
 .blog-meta {
-  margin: 0 0 6px;
   font-size: 13px;
   color: var(--text-muted);
-  font-weight: 600;
+  margin-bottom: 6px;
 }
 
 .blog-link {
-  padding: 0;
-  border: none;
-  background: none;
-  color: #ffffff;
   font-size: 13px;
   font-weight: 700;
+  background: none;
+  border: none;
+  color: #fff;
   cursor: pointer;
   text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
-/* ABOUT US SECTION */
+/* SCROLL ARROW */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-arrow {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+/* =============================== */
+/*           ABOUT SECTION         */
+/* =============================== */
+
 .about-section {
-  position: relative;
-  z-index: 1;
   padding: 80px 32px 100px;
   background: rgba(0, 0, 0, 0.95);
   min-height: 100vh;
@@ -328,13 +319,13 @@ body {
 .about-title {
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .about-text {
-  font-size: 16px;
-  color: var(--text-muted);
   max-width: 800px;
+  color: var(--text-muted);
+  font-size: 16px;
   line-height: 1.7;
   margin-bottom: 40px;
 }
@@ -346,84 +337,34 @@ body {
 }
 
 .about-card {
-  background: rgba(15, 23, 42, 0.8);
-  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.45);
   padding: 18px 20px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
+  border-radius: 12px;
 }
 
 .about-card h3 {
-  margin: 0 0 10px;
   font-size: 18px;
   font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .about-card p {
-  margin: 0;
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.6;
 }
 
-/* SCROLL ARROW */
-.scroll-indicator {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-}
-
-.scroll-arrow {
-  font-size: 24px;
-  color: #ffffff;
-  animation: bounce 1.7s infinite;
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .top-right-nav {
-    display: none;
-  }
-
-  .hero-content {
-    grid-template-columns: minmax(0, 1fr);
-    padding-inline: 20px;
-    gap: 40px;
-  }
-
-  .hero-right {
-    justify-content: flex-start;
-    padding-right: 0;
-  }
-
-  .newsletter-card {
-    max-width: 100%;
-  }
-
-  .about-section {
-    padding-inline: 20px;
-  }
-}
-/* CONTACT PAGE */
+/* =============================== */
+/*          CONTACT PAGE           */
+/* =============================== */
 
 .contact-page {
-  position: relative;
   min-height: 100vh;
   padding: 100px 32px 80px;
   background: radial-gradient(
       circle at 0 0,
-      rgba(123, 75, 255, 0.15),
+      rgba(123, 75, 255, 0.12),
       transparent 55%
     ),
     #020617;
@@ -436,8 +377,8 @@ body {
 }
 
 .contact-header {
-  max-width: 700px;
   margin-bottom: 40px;
+  max-width: 700px;
 }
 
 .contact-title {
@@ -454,22 +395,21 @@ body {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+  grid-template-columns: 1.4fr 1.2fr;
   gap: 24px;
 }
 
 .contact-card {
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.5);
   border-radius: 12px;
-  padding: 20px 22px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+  padding: 22px;
 }
 
 .contact-card-title {
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .contact-form {
@@ -486,105 +426,234 @@ body {
 
 .contact-field label {
   font-size: 13px;
-  font-weight: 600;
   color: var(--text-muted);
+  font-weight: 600;
 }
 
 .contact-field input,
 .contact-field textarea {
+  padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid rgba(148, 163, 184, 0.6);
   background: rgba(15, 23, 42, 0.9);
   color: #e5e7eb;
-  padding: 8px 10px;
-  font-size: 14px;
-  outline: none;
-}
-
-.contact-field input::placeholder,
-.contact-field textarea::placeholder {
-  color: rgba(148, 163, 184, 0.8);
-}
-
-.contact-field input:focus,
-.contact-field textarea:focus {
-  border-color: var(--purple);
-  box-shadow: 0 0 0 1px rgba(123, 75, 255, 0.5);
 }
 
 .contact-submit {
   margin-top: 8px;
-  align-self: flex-start;
   padding: 10px 22px;
   border-radius: 999px;
-  border: none;
   background: var(--purple);
+  border: none;
   color: #fff;
-  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease,
-    box-shadow 0.2s ease;
-  box-shadow: 0 10px 30px rgba(123, 75, 255, 0.6);
+  transition: 0.2s;
 }
 
 .contact-submit:hover {
   background: #8a63ff;
   transform: translateY(-1px);
-  box-shadow: 0 16px 40px rgba(123, 75, 255, 0.8);
 }
 
-/* CONTACT INFO SIDE */
+/* =============================== */
+/*         MATHEMANIA PAGE         */
+/* =============================== */
 
-.contact-info-card {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.mathemania-page {
+  min-height: 100vh;
+  padding: 100px 32px 80px;
+  background: radial-gradient(
+      circle at 0 0,
+      rgba(123, 75, 255, 0.18),
+      transparent 55%
+    ),
+    #020617;
+  color: #fff;
 }
 
-.contact-info-text {
+.mathemania-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mathemania-header {
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+
+.mathemania-title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.mathemania-subtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* LAYOUT: Left content + Right form */
+
+.mathemania-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1.3fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+/* CARD BASE */
+
+.mathemania-card {
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  padding: 22px;
+  border-radius: 12px;
+}
+
+.mathemania-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.mathemania-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.mathemania-list {
+  list-style: disc;
+  padding-left: 20px;
   font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.6;
+  margin-bottom: 10px;
 }
 
-.contact-info-text.small {
-  font-size: 13px;
-}
-
-.contact-info-list {
+.mathemania-info-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
-.contact-info-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-info-label {
+.mathemania-info-label {
   font-size: 12px;
-  font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 
-.contact-info-value {
+.mathemania-info-value {
   font-size: 14px;
-  font-weight: 500;
   color: #e5e7eb;
 }
 
-/* RESPONSIVE CONTACT PAGE */
+/* REQUIRED STAR */
+
+.required-star {
+  color: #f87171;
+  margin-left: 4px;
+}
+
+/* FORM */
+
+.mathemania-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mathemania-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mathemania-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.mathemania-field input,
+.mathemania-field textarea {
+  padding: 8px 10px;
+  background: rgba(15, 23, 42, 0.96);
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  border-radius: 8px;
+}
+
+.mathemania-field input:focus,
+.mathemania-field textarea:focus {
+  border-color: var(--purple);
+}
+
+/* MEMBER ROWS */
+
+.mathemania-field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.mathemania-footnote {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* BUTTON */
+
+.mathemania-button {
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--purple);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mathemania-button:hover {
+  background: #8a63ff;
+  transform: translateY(-1px);
+}
+
+/* =============================== */
+/*         RESPONSIVE              */
+/* =============================== */
 
 @media (max-width: 900px) {
-  .contact-page {
-    padding: 100px 20px 60px;
+  .top-right-nav {
+    display: none;
   }
 
+  .hero-content {
+    grid-template-columns: 1fr;
+    padding-inline: 20px;
+    gap: 40px;
+  }
+
+  .hero-right {
+    justify-content: flex-start;
+  }
+
+  .mathemania-grid,
   .contact-grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-card {
+    max-width: 100%;
+  }
+
+  .about-section,
+  .contact-page,
+  .mathemania-page {
+    padding-inline: 20px;
   }
 }

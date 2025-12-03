@@ -1,87 +1,18 @@
 // src/pages/Home.jsx
+
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link for navigation
+
+
 import bgImage from "../assets/home_background.jpg";
 import { blogs } from "../data/blogs";   // Import your blog data
 
 function Home() {
-  const aboutRef = useRef(null);
-  const autoScrollingRef = useRef(false);
-  const lastScrollYRef = useRef(0);
-  const [heroFaded, setHeroFaded] = useState(false);
-
-  const smoothScrollTo = (targetY, duration = 800) => {
-    const startY = window.scrollY;
-    const distance = targetY - startY;
-    let startTime = null;
-
-    const easeInOutQuad = (t) =>
-      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-
-    autoScrollingRef.current = true;
-
-    const step = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = easeInOutQuad(progress);
-
-      window.scrollTo(0, startY + distance * eased);
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        autoScrollingRef.current = false;
-        // sync last scroll so direction detection is correct next time
-        lastScrollYRef.current = window.scrollY;
-      }
-    };
-
-    requestAnimationFrame(step);
-  };
-
-  const scrollToAbout = () => {
-    if (!aboutRef.current) return;
-    const targetY =
-      aboutRef.current.getBoundingClientRect().top + window.scrollY;
-    smoothScrollTo(targetY, 800); // smooth transition to About
-  };
-
-  useEffect(() => {
-    lastScrollYRef.current = window.scrollY;
-
-    const handleScroll = () => {
-      if (autoScrollingRef.current) return;
-      if (!aboutRef.current) return;
-
-      const currentY = window.scrollY;
-      const scrollingDown = currentY > lastScrollYRef.current;
-      lastScrollYRef.current = currentY;
-
-      const rect = aboutRef.current.getBoundingClientRect();
-      const triggerPoint = window.innerHeight * 0.65;
-
-      // Auto-scroll only when scrolling down and approaching About
-      if (scrollingDown && rect.top < triggerPoint && rect.top > 0) {
-        setHeroFaded(true);      // fade the hero background
-        scrollToAbout();         // snap down to About
-      }
-
-      // If user scrolls back up near the top, restore background
-      if (!scrollingDown && currentY < window.innerHeight * 0.3) {
-        setHeroFaded(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <>
       {/* HERO SECTION */}
       <div
-        className={`hero-root ${heroFaded ? "hero-fade-out" : ""}`}
+        className="hero-root"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
         <div className="hero-overlay" />
@@ -129,14 +60,14 @@ function Home() {
           </section>
         </main>
 
-        {/* SCROLL ARROW (OPTIONAL) */}
+        {/* SCROLL ARROW (now static, no animation) */}
         <div className="scroll-indicator">
           <span className="scroll-arrow">↓</span>
         </div>
       </div>
 
       {/* ABOUT US SECTION */}
-      <section className="about-section" id="about" ref={aboutRef}>
+      <section className="about-section" id="about">
         <div className="about-inner">
           <h2 className="about-title">About Us</h2>
           <p className="about-text">
