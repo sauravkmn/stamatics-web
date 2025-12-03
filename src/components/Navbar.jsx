@@ -22,11 +22,7 @@ function Navbar() {
         {/* RIGHT NAVIGATION */}
         <nav className="nav-links top-right-nav">
 
-
-          {/* ABOUT US */}
-
-          {/* About Us scrolls within Home for now */}
-
+          {/* ABOUT US (scrolls within Home page) */}
           <a href="/#about" className="nav-link">
             About Us
           </a>
@@ -36,7 +32,6 @@ function Navbar() {
             <span className="dropdown-label">Competitions ▾</span>
 
             <div className="dropdown-menu">
-              {/* These still scroll within Home for now */}
               <a href="/#integration" className="dropdown-item">
                 Integration Bee
               </a>
@@ -44,7 +39,7 @@ function Navbar() {
                 Mathematica
               </a>
 
-              {/* Mathemania now has its own page */}
+              {/* Mathemania has its own page */}
               <NavLink to="/mathemania" className="dropdown-item">
                 Mathemania
               </NavLink>
@@ -55,21 +50,12 @@ function Navbar() {
             </div>
           </div>
 
-
-          {/* BLOGS — FIXED: Now points to /blogs */}
+          {/* BLOGS (real page) */}
           <NavLink to="/blogs" className={navLinkClass}>
             Blogs
           </NavLink>
 
-          {/* TEAM — Still points to Home for now */}
-
-          {/* BLOGS – can be routed later */}
-          <NavLink to="/" className={navLinkClass}>
-            Blogs
-          </NavLink>
-
-          {/* TEAM – can be routed later */}
-
+          {/* OUR TEAM (placeholder for future page) */}
           <NavLink to="/" className={navLinkClass}>
             Our Team
           </NavLink>
