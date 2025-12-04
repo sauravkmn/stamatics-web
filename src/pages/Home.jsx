@@ -25,8 +25,7 @@ function Home() {
               <span>IIT Kanpur</span>
             </h1>
             <p className="hero-subtitle">
-              The destination for students who seek to explore Mathematics,
-              Statistics, and problem solving.
+              Bring problems. Leave with answers.
             </p>
             <button className="hero-button">Explore Competitions</button>
           </section>
