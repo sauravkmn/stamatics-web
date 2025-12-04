@@ -45,17 +45,33 @@ function Mathemania() {
       "https://script.google.com/macros/s/AKfycbyBmUZF4zRc1Ja8lqr0mF4kDmSO-ObQLRtmwCMObAdYHlKwzvcYYU4jz3x5IYT6T5-_PQ/exec";
 
     try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const res = await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(formData)
       });
 
+      // Try to parse JSON response from Apps Script
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        data = null;
+      }
+
+      if (!res.ok || !data || data.result !== "success") {
+        alert(
+          (data && data.error) ||
+            "There was a problem submitting your registration. Please try again."
+        );
+        return;
+      }
+
       alert("Registration submitted! Your response has been recorded.");
 
+      // Reset form
       setFormData({
         teamName: "",
         institute: "",
@@ -90,28 +106,6 @@ function Mathemania() {
             combining creativity, rigor, and problem-solving under one banner.
           </p>
         </header>
-
-        {/* NEW SUMMARY SECTION: Event Overview, Format, PYA button */}
-        <div className="mathemania-card">
-          <h2 className="mathemania-card-title">Event Overview & Format</h2>
-          <p className="mathemania-text">
-            Mathemania is a multi-round competition focused on mathematical
-            problem-solving, creativity, and speed. It is designed for students
-            who enjoy challenging problems and collaborative thinking.
-          </p>
-          <p className="mathemania-text">
-            <strong>Format:</strong> Written and interactive rounds, team-based
-            contest with up to 4 members per team.
-          </p>
-          <a
-            href="https://drive.google.com/drive/folders/1QXsp1OCryBgIKEJScEwKYkb8kdNkmaR6?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mathemania-button secondary"
-          >
-            PYA
-          </a>
-        </div>
 
         <div className="mathemania-grid">
           {/* LEFT: EVENT OVERVIEW + KEY INFO + PAST PAPERS LINE */}
@@ -159,7 +153,7 @@ function Mathemania() {
             </p>
           </div>
 
-          {/* RIGHT: REGISTRATION FORM (looks unchanged, logic updated) */}
+          {/* RIGHT: REGISTRATION FORM (looks unchanged) */}
           <div className="mathemania-card">
             <h2 className="mathemania-card-title">
               Mathemania Registration Form
