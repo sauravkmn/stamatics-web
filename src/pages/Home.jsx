@@ -20,7 +20,7 @@ function Home() {
         <main className="hero-content">
           {/* LEFT HERO TEXT */}
           <section className="hero-left">
-            <h1 className="hero-title">Stamatics IIT Kanpur</h1>
+            <h1 className="hero-title">Stamatics<br /></>IIT Kanpur</h1>
             <p className="hero-subtitle">
               The destination for students who seek to explore Mathematics,
               Statistics, and problem solving.
