@@ -113,11 +113,12 @@ body {
 
 .dropdown {
   position: relative;
+  display: inline-block;
 }
 
 .dropdown-menu {
   position: absolute;
-  top: 110%;
+  top: 100%;
   left: 0;
   display: none;
   flex-direction: column;
@@ -129,7 +130,8 @@ body {
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.6);
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
   display: flex;
 }
 
