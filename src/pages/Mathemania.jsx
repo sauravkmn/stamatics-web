@@ -41,10 +41,10 @@ function Mathemania() {
     setSubmitting(true);
 
     const GOOGLE_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbxSyz7fgt9fSn3lgMGnExv7I9sTAm8R7Eq_OmzF6uR8Gdd6zTr5gLPcu_XV4VH_xwHwqg/exec";
+      "https://script.google.com/macros/s/AKfycbwv8yFFWikTCVSBpNaGtnYQEfCE_vmEK_J8cF1T_aF2avROc0y5Lfhak_sSKCx6FlQuzA/exec";
 
     try {
-      // Send data with no-cors to avoid browser blocking
+      // Send data as plain text JSON with no-cors to avoid CORS/preflight issues
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
@@ -54,6 +54,7 @@ function Mathemania() {
         body: JSON.stringify(formData)
       });
 
+      // We can't read the response in no-cors mode, so assume success if no error
       alert("Registration submitted! Your response has been recorded.");
 
       setFormData({
@@ -71,7 +72,9 @@ function Mathemania() {
       });
     } catch (error) {
       console.error("Mathemania submit error:", error);
-      alert("An error occurred while submitting your registration. Please try again later.");
+      alert(
+        "An error occurred while submitting your registration. Please try again later."
+      );
     } finally {
       setSubmitting(false);
     }
@@ -80,7 +83,6 @@ function Mathemania() {
   return (
     <section className="mathemania-page">
       <div className="mathemania-inner">
-        
         {/* HEADER */}
         <header className="mathemania-header">
           <h1 className="mathemania-title">Mathemania</h1>
@@ -91,12 +93,18 @@ function Mathemania() {
         </header>
 
         <div className="mathemania-grid">
-          
           {/* LEFT PANEL */}
           <div className="mathemania-card">
             <h2 className="mathemania-card-title">Event Overview</h2>
             <p className="mathemania-text">
-              Mathemania is an engaging team-based mathematics competition designed to challenge participants through a curated set of eight high-level problems drawn from diverse areas of mathematics. The event encourages collaborative problem-solving, strategic thinking, and rigorous reasoning under time constraints. Each team works together to complete the full question set, applying logic, geometry, algebra, number theory, and inequality techniques to arrive at correct solutions.
+              Mathemania is an engaging team-based mathematics competition
+              designed to challenge participants through a curated set of eight
+              high-level problems drawn from diverse areas of mathematics. The
+              event encourages collaborative problem-solving, strategic
+              thinking, and rigorous reasoning under time constraints. Each team
+              works together to complete the full question set, applying logic,
+              geometry, algebra, number theory, and inequality techniques to
+              arrive at correct solutions.
             </p>
 
             <h2 className="mathemania-card-title mathemania-subheading">
@@ -106,13 +114,24 @@ function Mathemania() {
             <p className="mathemania-keyinfo">Format:</p>
             <ul>
               <li>The paper contains 8–10 questions, each worth 10 points.</li>
-              <li>Each question is subjective and explores areas such as proofs, logical reasoning, and geometry.</li>
+              <li>
+                Each question is subjective and explores areas such as proofs,
+                logical reasoning, and geometry.
+              </li>
             </ul>
 
+            {/* FIXED HERE */}
             <p className="mathemania-keyinfo">Rules and Conduct:</p>
             <ul>
-              <li>Interaction between teams is strictly prohibited and may lead to penalties or disqualification.</li>
-              <li>All electronic devices must be submitted to an invigilator before the event begins.</li>
+              <li>
+                Interaction between teams is strictly prohibited and may lead to
+                penalties or disqualification.
+              </li>
+              <li>
+                All electronic devices must be submitted to an invigilator
+                before the event begins. Any use of such devices during the
+                competition results in immediate disqualification.
+              </li>
             </ul>
 
             <p className="mathemania-text" style={{ marginTop: "10px" }}>
@@ -132,23 +151,26 @@ function Mathemania() {
             </p>
 
             <p className="mathemania-text mathemania-past-line">
-              Past papers and resources will be made available on the Stamatics website ahead of the contest.
+              Past papers and resources will be made available on the Stamatics
+              website ahead of the contest.
             </p>
           </div>
 
           {/* RIGHT PANEL – FORM */}
           <div className="mathemania-card">
-            <h2 className="mathemania-card-title">Mathemania Registration Form</h2>
+            <h2 className="mathemania-card-title">
+              Mathemania Registration Form
+            </h2>
             <p className="mathemania-text">
               Group size limit: up to 4 members.
               <br />
               <span className="mathemania-note">
-                Team name should contain only Roman characters, digits, spaces, and underscores (no emojis or special symbols).
+                Team name should contain only Roman characters, digits, spaces,
+                and underscores (no emojis or special symbols).
               </span>
             </p>
 
             <form className="mathemania-form" onSubmit={handleSubmit}>
-              
               {/* TEAM NAME */}
               <div className="mathemania-field">
                 <label htmlFor="teamName">
@@ -309,8 +331,8 @@ function Mathemania() {
               </div>
 
               <p className="mathemania-text mathemania-footnote">
-                Fields marked with <span className="required-star">*</span> are compulsory.
-                Group size limit is up to 4 members.
+                Fields marked with <span className="required-star">*</span> are
+                compulsory. Group size limit is up to 4 members.
               </p>
 
               <button
@@ -320,7 +342,6 @@ function Mathemania() {
               >
                 {submitting ? "Submitting..." : "Submit Registration"}
               </button>
-
             </form>
           </div>
         </div>
