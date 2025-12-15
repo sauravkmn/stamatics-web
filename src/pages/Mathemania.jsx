@@ -1,6 +1,8 @@
 // src/pages/Mathemania.jsx
 import React, { useState } from "react";
 
+import "../styles/pages/mathemania.css"; // ← ONLY ADDITION
+
 function Mathemania() {
   const [formData, setFormData] = useState({
     teamName: "",
