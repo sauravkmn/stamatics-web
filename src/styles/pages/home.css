@@ -3,7 +3,7 @@
 .hero-root {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 70vh; /* ↓ REDUCED so About is visible */
   background-size: contain;
   background-position: center top;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 32px;
-  min-height: 100vh;
+  min-height: 70vh;
 
   display: grid;
   grid-template-columns: 1.4fr 1.6fr;
@@ -41,8 +41,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 22vh; /* ← CHANGE THIS TO MOVE TEXT UP/DOWN */
-  min-height: 100vh;
+  padding-top: 18vh; /* Adjust hero text vertical position */
 }
 
 .hero-center {
@@ -66,25 +65,11 @@
   display: block;
 }
 
-/* SCROLL ARROW */
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.scroll-arrow {
-  font-size: 24px;
-  color: #ffffff;
-}
-
 /* ABOUT US FULL-WIDTH SECTION */
 
 .about-full {
   width: 100%;
-  padding: 64px 32px;
+  padding: 48px 32px;
   background: rgba(0, 0, 0, 0.95);
 }
 
@@ -119,12 +104,11 @@
   }
 
   .hero-left {
-    padding-top: 18vh;
-    min-height: auto;
+    padding-top: 14vh;
   }
 
   .about-full {
-    padding: 48px 20px;
+    padding: 36px 20px;
   }
 
   .about-full-inner {
