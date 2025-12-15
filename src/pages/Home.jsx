@@ -27,24 +27,6 @@ function Home() {
               Bring problems. Leave with answers.
             </p>
           </div>
-
-          {/* ABOUT US (FLOWING BELOW, DOES NOT AFFECT CENTERING) */}
-          <div className="about-card about-card-wide">
-            <h3>About Us</h3>
-            <p>
-              Stamatics is the official Mathematics and Statistics society of IIT
-              Kanpur. It brings together students who enjoy mathematical
-              thinking, logical reasoning, and problem solving beyond the
-              classroom.
-            </p>
-            <p>
-              Throughout the year, the society organises competitions, talks by
-              professors and researchers, workshops, and collaborative
-              problem-solving sessions. These activities aim to build curiosity,
-              community, and a deeper appreciation for mathematics across
-              campus.
-            </p>
-          </div>
         </section>
 
         {/* RIGHT COLUMN (EMPTY FOR BALANCE) */}
