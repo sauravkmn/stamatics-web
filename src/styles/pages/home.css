@@ -36,21 +36,19 @@
   gap: 120px;
 }
 
-/* LEFT HERO */
+/* LEFT COLUMN */
 
 .hero-left {
-  position: relative;
-  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ← THIS centers the title block */
   min-height: 100vh;
 }
 
-/* This keeps ONLY the title/subtitle vertically centered like before */
-.hero-left-center {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
+/* TITLE + SUBTITLE */
+
+.hero-center {
+  margin-bottom: 56px; /* space before About Us */
 }
 
 .hero-title {
@@ -62,24 +60,18 @@
 .hero-subtitle {
   font-size: 18px;
   color: var(--text-muted);
-  margin-bottom: 0;
 }
 
-/* ABOUT US — ABSOLUTE SO IT DOESN'T PUSH THE TITLE UP */
+/* ABOUT US */
 
 .about-card {
   background: rgba(15, 23, 42, 0.88);
   border: 1px solid rgba(148, 163, 184, 0.45);
   border-radius: 12px;
-  padding: 20px 22px;
+  padding: 24px 28px;
 }
 
 .about-card-wide {
-  position: absolute;
-  top: calc(50% + 140px); /* places it below the centered title/subtitle */
-  left: 0;
-
-  /* span more to the right than before */
   width: 1100px;
   max-width: 1100px;
 }
@@ -87,17 +79,17 @@
 .about-card h3 {
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .about-card p {
   font-size: 15px;
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 10px;
+  line-height: 1.65;
+  margin-bottom: 12px;
 }
 
-/* RIGHT SIDE (EMPTY) */
+/* RIGHT COLUMN */
 
 .hero-right {
   display: block;
@@ -126,19 +118,11 @@
   }
 
   .hero-left {
-    max-width: 100%;
-  }
-
-  .hero-left-center {
-    position: static;
-    transform: none;
-    padding-top: 120px;
+    min-height: auto;
   }
 
   .about-card-wide {
-    position: static;
     width: 100%;
     max-width: 100%;
-    margin-top: 24px;
   }
 }
