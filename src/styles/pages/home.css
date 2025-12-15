@@ -51,32 +51,34 @@
 .hero-subtitle {
   font-size: 18px;
   color: var(--text-muted);
-  margin-bottom: 20px;
+  margin-bottom: 48px; /* MORE SPACE ABOVE ABOUT */
 }
 
-/* COMPACT ABOUT BOX */
+/* ABOUT US — FULL WIDTH BOX */
 
 .about-card {
   background: rgba(15, 23, 42, 0.88);
   border: 1px solid rgba(148, 163, 184, 0.45);
   border-radius: 12px;
-  padding: 16px 18px;
+  padding: 24px 28px;
 }
 
-.about-card-compact {
-  max-width: 520px;
+.about-card-wide {
+  width: calc(100vw - 64px);
+  max-width: 1200px;
 }
 
 .about-card h3 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 .about-card p {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.65;
+  margin-bottom: 12px;
 }
 
 /* RIGHT SIDE (EMPTY) */
@@ -109,5 +111,9 @@
 
   .hero-left {
     max-width: 100%;
+  }
+
+  .about-card-wide {
+    width: 100%;
   }
 }
