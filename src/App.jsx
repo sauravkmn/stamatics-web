@@ -18,7 +18,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import MathemaniaAdmin from "./pages/MathemaniaAdmin";
 import BlogAdmin from "./pages/BlogAdmin";
 
-import "./App.css"; 
+import "./styles/globals.css";
 
 function App() {
   return (
