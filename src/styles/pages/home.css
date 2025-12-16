@@ -1,10 +1,12 @@
-/* HERO SECTION */
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero-root {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-size: contain;
+  background-size: cover;          /* FULL background */
   background-position: center top;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -35,13 +37,15 @@
   gap: 120px;
 }
 
-/* LEFT COLUMN */
+/* =========================
+   LEFT COLUMN
+========================= */
 
 .hero-left {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 22vh; /* ← CHANGE THIS TO MOVE TEXT UP/DOWN */
+  padding-top: 22vh; /* adjust hero text vertical position */
   min-height: 100vh;
 }
 
@@ -60,32 +64,25 @@
   color: var(--text-muted);
 }
 
-/* RIGHT COLUMN */
+/* =========================
+   RIGHT COLUMN
+========================= */
 
 .hero-right {
   display: block;
 }
 
-/* SCROLL ARROW */
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.scroll-arrow {
-  font-size: 24px;
-  color: #ffffff;
-}
-
-/* ABOUT US FULL-WIDTH SECTION */
+/* =========================
+   ABOUT US (OVERLAPS HERO)
+========================= */
 
 .about-full {
   width: 100%;
-  padding: 64px 32px;
-  background: rgba(0, 0, 0, 0.95);
+  padding: 0 32px 64px;
+  margin-top: -220px;        /* pulls About over hero */
+  background: transparent;
+  position: relative;
+  z-index: 2;                /* above hero overlay */
 }
 
 .about-full-inner {
@@ -95,6 +92,7 @@
   border: 1px solid rgba(148, 163, 184, 0.45);
   border-radius: 14px;
   padding: 28px 32px;
+  backdrop-filter: blur(6px);
 }
 
 .about-full-title {
@@ -110,7 +108,9 @@
   margin-bottom: 12px;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 900px) {
   .hero-content {
@@ -124,7 +124,8 @@
   }
 
   .about-full {
-    padding: 48px 20px;
+    margin-top: -140px;
+    padding: 0 20px 48px;
   }
 
   .about-full-inner {
