@@ -95,8 +95,7 @@ function Contact() {
           {/* RIGHT COLUMN */}
           <div className="contact-right">
             <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="contact-row">
-                <div className="contact-field">
+              <div className="contact-field">
                   <label>Name</label>
                   <input
                     type="text"
@@ -106,7 +105,7 @@ function Contact() {
                     required
                   />
                 </div>
-
+                
                 <div className="contact-field">
                   <label>Email</label>
                   <input
