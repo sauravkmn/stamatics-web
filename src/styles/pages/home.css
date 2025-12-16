@@ -45,7 +45,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 22vh; /* adjust hero text vertical position */
+  padding-top: 26vh; /* adjust hero text vertical position */
   min-height: 100vh;
 }
 
